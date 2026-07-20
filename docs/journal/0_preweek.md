@@ -8,7 +8,7 @@ The technical goal of Preweek (which is to Explore) is to determine how well do 
 [Ref 1] Ways to Build Agents, From Zero-Code to Full Custom
 - A single agent file (e.g., AGENT.md) that references external files for context (e.g., ~/docs/*.md)
 - Skill-based architecture: one orchestrating agent, many plug-in capabilities (e.g.,  ~/.skills)
-- A coding agent SDK that spawns sub-agents capable of reading, writing, and executing files (e.g., ~/subagents)
+- A coding agent SDK that spawns sub-agents capable of reading, writing, and executing files (e.g., ~/subagents) or by using Filesystem Subagents
 - A visual workflow platform that connects agents, tools, and triggers (e.g., n8n)
 - A general-purpose agent SDK with plug-and-play components (e.g., LangChain, CrewAI)
 - Using the model provider's SDK directly (e.g., Anthropic SDK, OpenAI SDK, AWS Bedrock SDK) and writing your own agent loop

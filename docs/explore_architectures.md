@@ -99,3 +99,12 @@ Agent Skills does work, and pretty well, but we will need a much more complex st
 We probably should be defining a Player Persona, which describes how the player likes to play, based on a mix of modes e.g., Risk Mode, Exploration Mode, etc.
 
 When we enter a goal, we should see a goal decomposition/planning, so we can see how it will reason the goal.
+
+## 3a. Filesystem Subagent driven by a coding harness
+
+### Technical Observations
+
+Worked the same as 02_agent_skills, just as an agent, and it was able to login as the new second user.
+
+I used the same prompt as Andrew to play both players, but it did not spawn two agents to play both. 
+
