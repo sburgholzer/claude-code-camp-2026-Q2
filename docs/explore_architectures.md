@@ -39,3 +39,63 @@ If we had an MCP server for our MUD SDK then maybe we could drive the agent bett
 Due to the complexity of the world and player state data, I do not believe that simply updating the markdown files will be sufficient for this architecture to be successful at completing goals in the MUD.
 
 > Use coding harnesses for coding, and for specialized agents make your own loop.
+
+## 2. Agent Skills driven by main agent, e.g., ~/.skills
+
+A very common way to drive specific functionality is via Agent Skills, which is an open format for agents adopted by many coding harnesses and agent SDKs.
+
+We should create a skill that has its own script to help it connect to a MUD, we should attempt to have it manage it's own data.
+
+
+### Technical Observations
+
+Skill Creator Skill used this prompt "I want a skill that can play a mud that is running on localhost:4000 it is tbaMUD a variation of CircleMude I have a player already created: dummy / helloworld. Can you create that skill and create a script to manage the telnet connect and issue command commands." and created a python script. It ran the script first to make sure it worked, and it ran into an issue and attempted to fix the issue and ran again. It worked, but found a couple of bugs that it fixed. It then verified the script worked and went back to work on writing the skill.
+
+Unlike Andrew, my Claude Code put the skill in the 02_agent_skills, but I still had to do the .claude/skills directory set up like him.
+
+This actually did find the bakery, gave me the route from my last location (which was the Inn), and listed the bakery items and their cost. It did stop executing once it found the bakery.
+
+Switched to Haiku model and tried to find the player's starting guild and practice kick. It took a while, but it found the Guild, but unlike Andrew, mine did not actually attempt to practice the kick, it gave the location, full path, guild areas, and info about the kick skill and that the practice yard is where you'd practice and learn the kick ability. I never did get it to practice kick. In fact somehow it deleted my player!
+
+After we made changes to the skill to add data/player.md and data/world.md, and switched back to Haiku, I tested finding the bakery again, and it found it and updated both files.
+
+I tested the find guild and practice kick again as well. It got me stuck in a dungeon area in the pitch black. I had to use my admin character to teleport my player character back to the temple. Then from there clarified to Claude Code to look at the player's guild, go there and practice kick and it worked.
+
+Attempted to find the minotaur. The Skill got me to the newbie zone and explored, but couldn't find anything. It kept opening doors and grates, and finding dark areas. So it went back to town to locate a light source. I stopped it there and gave it the same command as Andrew to locate the minotaur. My Claude Code seemed to go to start leveling up. I died to a baby dragon. After that, it went back to try to find the Red Room.
+
+A Real player would have held the goal, and been more productive expecting it to the boss of the level, and progressively leveling up and exploring, not simply trying to find the end boss.
+
+It did update the world and player stat, just not in real time. That made it hard to observe what it knows has changed. It should have been collecting observations to explore later, but instead would go back and just brute force not appearing to reason its journey pathing.
+
+Claude Code's agentic loop is a good driver, but if they were to update Claude Code, we would have no idea how the agentic loop would be affected.
+
+At scale, it could have a hard time managing the state of just markdown files for memory. A dynamic adaptive task management system would most likely be best option.
+
+Example: Goal: Defat the Massive Minotaur in the Newbie Zone north of town
+
+Before I find the Newbie Zone and leave the town, do I need to prepare?
+- collect information from NPCs for my goal?
+- can I obtain any resources?
+- any training I need to do?
+
+I should find the Newbie Zone.
+- while on path, was there anything of interest that should warrant a detour? Would this spawn a sidequest?
+- Explorer Mode:
+  - Focused: Stay on main quest
+  - Curious: Consider sidequests while on main quest, especially if could save backtracking or provide an advantage or resources
+  - Aloof: Do all sidequests, and not worry too quickly about main quest progression
+
+I have found the Newbie Zone.
+- Risk Mode:
+  - Bold: Try and push exploration to find your end goal, and try to run past high level mobs, or run away, try and push fighting stronger mobs to level up faster, and take more risks.
+  - Balanced: <something inbetween>
+  - Scared: Don't progress exploration where mobs are higher level or I am at a risk of dying. Take the time to be in a safe area and heal. If hungry and thirsty or risk of losing money, backtrack to town always, have plenty of resources.
+  - There can be high level mobs that are not a risk like Town guards, context is key, if we are in a forest of monsters than mobs are higher risk.
+
+## Technical Conclusions
+
+Agent Skills does work, and pretty well, but we will need a much more complex state, world and player management. We really need to have auditable visibility of the agent for reporting token/usage and to review the player journey. A custom agentic loop would help solve this. We want an agent that acts, and spends less time asking "what should it do."
+
+We probably should be defining a Player Persona, which describes how the player likes to play, based on a mix of modes e.g., Risk Mode, Exploration Mode, etc.
+
+When we enter a goal, we should see a goal decomposition/planning, so we can see how it will reason the goal.
