@@ -108,3 +108,10 @@ Worked the same as 02_agent_skills, just as an agent, and it was able to login a
 
 I used the same prompt as Andrew to play both players, but it did not spawn two agents to play both. 
 
+## 3b. Subagent SDK
+
+### Technical Observations
+
+It kept editing main.py for some reason.. not sure why.
+
+My claude make an agents/play_mud_agent.py and a main.py, the main.py is how you interact with the agent, and you have to pass it in a goal... It did give me the hunger status with the prompt andrew used for both players, though it also showed thirst, which I'm not mad about.
