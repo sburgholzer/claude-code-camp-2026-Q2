@@ -129,3 +129,8 @@ API key set?    true
 
 #<Boukensha::Config dir=/home/andrew/Sites/Claude-Code-Camp/.boukensha tasks=player>
 ```
+
+## Considerations
+These are things we observed but we do not want fixed since future steps will break them again.
+- We have a default prompt e.g. prompts/system.md. It is supposed to be scoped on task e.g. prompts/<task>/system.md
+- Our settings file should accept .yml or .yaml, right now it only takes .yaml

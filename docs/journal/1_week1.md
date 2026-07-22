@@ -27,11 +27,7 @@ Additional items that would be beneficial:
 - Calling another program written in another language should be fine in Rust, I don't see why not.
 
 ## Technical Observations
-While implementing your technical experiements what key observsations can you share which would be useful for someone to know trying to replicate your experience.
-
-| If you have a considerable amount of documentation please summarize and link to documentation. This section is the perfect place to show proof of work such as screenshot, code samples, benchmarks.
-
-| Remember that routine work should be ommitted eg. how to install docker, what is an LLM.
+- As I don't use Ruby, and I run a Mac, Apple ships with Ruby 2.6.10 (at least mine did), which meant the ruby code given to us wouldn't run. I had to update, or rather install it, via homebrew.
 
 ## Technical Conclusions
 Reflecting back your education guesses from the technical uncertainty section what was the technical outcomes. Is there any new technical uncertainty that has been put aside for future exploration. Are there any next steps or technical considerations worth noting?
