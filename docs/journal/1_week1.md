@@ -28,6 +28,8 @@ Additional items that would be beneficial:
 
 ## Technical Observations
 - As I don't use Ruby, and I run a Mac, Apple ships with Ruby 2.6.10 (at least mine did), which meant the ruby code given to us wouldn't run. I had to update, or rather install it, via homebrew.
+- Python Port, via Claude Code was straight forward and easy. Just some pathing issues, but otherwise worked very well. (00_config)
+- Rust port went even smoother than python (mostly because pathing issues were solved.). The default prompts/system.md file path is baked into the compiled rust binary, so if it is moved from the host machine, it would break if no custom prompts in boukensha. The readme explains this. I'm still deciding what to do here, keep it like that, or bake the default prompt text into the compiled binary itself.
 
 ## Technical Conclusions
 Reflecting back your education guesses from the technical uncertainty section what was the technical outcomes. Is there any new technical uncertainty that has been put aside for future exploration. Are there any next steps or technical considerations worth noting?
