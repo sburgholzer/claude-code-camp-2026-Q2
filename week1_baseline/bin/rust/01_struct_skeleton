@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd "$(dirname "$0")/../../rust/01_struct_skeleton"
+cargo run --quiet --example example

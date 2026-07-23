@@ -13,6 +13,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "boukensha_01_struct_skeleton"
+version = "0.1.0"
+dependencies = [
+ "dirs",
+ "dotenvy",
+ "serde",
+ "serde_yaml_ng",
+]
+
+[[package]]
 name = "cfg-if"
 version = "1.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"

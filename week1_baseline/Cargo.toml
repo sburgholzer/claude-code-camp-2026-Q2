@@ -1,3 +1,3 @@
 [workspace]
 resolver = "2"
-members = ["rust/00_config"]
+members = ["rust/00_config", "rust/01_struct_skeleton"]
