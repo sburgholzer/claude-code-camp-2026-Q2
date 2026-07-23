@@ -4,5 +4,5 @@
 #bundle exec ruby examples/example.rb
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-cd "$SCRIPT_DIR/../../ruby/00_config"
+cd "$SCRIPT_DIR/../../ruby/01_struct_skeleton"
 bundle exec ruby examples/example.rb
