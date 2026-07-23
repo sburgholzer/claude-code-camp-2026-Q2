@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd "$(dirname "$0")/../../rust/02_the_registry"
+cargo run --quiet --example example

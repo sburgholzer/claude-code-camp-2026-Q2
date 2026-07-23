@@ -1,0 +1,11 @@
+[package]
+name = "boukensha_02_the_registry"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_yaml_ng = "0.10"
+dotenvy = "0.15"
+dirs = "5"
+indexmap = "2"

@@ -23,6 +23,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "boukensha_02_the_registry"
+version = "0.1.0"
+dependencies = [
+ "dirs",
+ "dotenvy",
+ "indexmap",
+ "serde",
+ "serde_yaml_ng",
+]
+
+[[package]]
 name = "cfg-if"
 version = "1.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
