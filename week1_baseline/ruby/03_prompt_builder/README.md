@@ -1,8 +1,8 @@
 # The Prompt Builder
 
-Because LLM access, cost and quality are cosntantly changing, we want to be able to switch between multiple LLMs that will drive the agent loop.
+Because LLM access, cost and quality are constantly changing, we want to be able to switch between multiple LLMs that will drive the agent loop.
 
-There are serveral SDKs that provide access to many LLMs but in practice we only really need to focus on top-tier models:
+There are several SDKs that provide access to many LLMs but in practice we only really need to focus on top-tier models:
 - anthropic family
 - openai family
 - gemini family
