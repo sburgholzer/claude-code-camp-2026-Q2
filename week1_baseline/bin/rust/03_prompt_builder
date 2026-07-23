@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd "$(dirname "$0")/../../rust/03_prompt_builder"
+cargo run --quiet --example example
