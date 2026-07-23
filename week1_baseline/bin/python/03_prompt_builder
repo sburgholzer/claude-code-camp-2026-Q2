@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$SCRIPT_DIR/../../python/03_prompt_builder"
+"$SCRIPT_DIR/../../../.venv/bin/python" examples/example.py
