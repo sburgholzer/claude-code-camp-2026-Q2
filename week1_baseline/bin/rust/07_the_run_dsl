@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd "$(dirname "$0")/../../rust/07_the_run_dsl"
+cargo run --quiet --example example
