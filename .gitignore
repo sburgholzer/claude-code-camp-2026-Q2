@@ -8,6 +8,9 @@
 # Local Claude Code settings (machine-specific permissions/overrides)
 **/.claude/settings.local.json
 
+# Local VS Code settings (machine-specific editor/terminal preferences)
+.vscode/
+
 node_modules
 __pycache__
 .venv/

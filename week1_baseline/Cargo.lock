@@ -148,6 +148,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "boukensha_09_global_executable"
+version = "0.1.0"
+dependencies = [
+ "ctrlc",
+ "dirs",
+ "dotenvy",
+ "indexmap",
+ "serde",
+ "serde_json",
+ "serde_yaml_ng",
+ "time",
+ "ureq",
+]
+
+[[package]]
 name = "bytes"
 version = "1.12.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"

@@ -25,3 +25,20 @@ snake_cased — `00_config` becomes `boukensha_00_config`,
 `01_struct_skeleton` becomes `boukensha_01_struct_skeleton`, and so on. This
 only affects the `Cargo.toml` manifest and cross-crate `use` paths; `mod`/
 `struct` names inside the code are unaffected.
+
+## 09_global_executable: a real `boukensha` binary
+
+Unlike every prior step, `09_global_executable` isn't run through a
+`bin/rust/<step>` launcher — it's the official global executable, installed
+via:
+
+```bash
+cargo install --path rust/09_global_executable
+```
+
+This produces a real `~/.cargo/bin/boukensha` binary, runnable from any
+directory once `~/.cargo/bin` is on `PATH`. See
+`rust/09_global_executable/README.md` for `BOUKENSHA_DIR`/`~/.boukensharc`
+usage and the documented `BOUKENSHA_PATH` capability gap (Rust binaries
+can't dynamically load another step's code at runtime the way Ruby/Python
+can — use that step's own `bin/rust/<step>` launcher instead).

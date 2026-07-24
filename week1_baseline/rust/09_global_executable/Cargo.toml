@@ -1,0 +1,25 @@
+[package]
+name = "boukensha_09_global_executable"
+version = "0.1.0"
+edition = "2021"
+
+# The installed binary is named "boukensha" (not the package name) —
+# the Rust analog of Ruby's gemspec `spec.executables = ["boukensha"]`
+# and Python's `[project.scripts] boukensha = ...`. `cargo install
+# --path .` installs this as ~/.cargo/bin/boukensha regardless of the
+# package name, which stays boukensha_09_global_executable to match
+# every other step's boukensha_NN_name convention (see rust/README.md).
+[[bin]]
+name = "boukensha"
+path = "src/bin/boukensha.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_yaml_ng = "0.10"
+serde_json = { version = "1", features = ["preserve_order"] }
+dotenvy = "0.15"
+dirs = "5"
+indexmap = "2"
+ureq = { version = "3", features = ["native-tls"] }
+time = { version = "0.3", features = ["formatting"] }
+ctrlc = "3"
