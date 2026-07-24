@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd "$(dirname "$0")/../../rust/08_the_repl_loop"
+cargo run --quiet --example example
