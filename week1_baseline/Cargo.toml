@@ -1,3 +1,3 @@
 [workspace]
 resolver = "2"
-members = ["rust/00_config", "rust/01_struct_skeleton", "rust/02_the_registry", "rust/03_prompt_builder", "rust/04_api_client", "rust/05_agent_loop"]
+members = ["rust/00_config", "rust/01_struct_skeleton", "rust/02_the_registry", "rust/03_prompt_builder", "rust/04_api_client", "rust/05_agent_loop", "rust/06_the_logger"]

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd "$(dirname "$0")/../../rust/06_the_logger"
+cargo run --quiet --example example
