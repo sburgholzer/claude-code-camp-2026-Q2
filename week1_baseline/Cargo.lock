@@ -83,6 +83,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "boukensha_05_agent_loop"
+version = "0.1.0"
+dependencies = [
+ "dirs",
+ "dotenvy",
+ "indexmap",
+ "serde",
+ "serde_json",
+ "serde_yaml_ng",
+ "ureq",
+]
+
+[[package]]
 name = "bytes"
 version = "1.12.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd "$(dirname "$0")/../../rust/05_agent_loop"
+cargo run --quiet --example example
