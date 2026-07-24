@@ -17,8 +17,6 @@ The interactive session loop. Built-in commands:
 
 | Command | Effect |
 |---|---|
-| `/quiet` | Suppress logging output |
-| `/loud` | Re-enable logging output |
 | `/clear` | Wipe conversation history (tools stay registered) |
 | `/help` | Print the command list |
 | `/exit` / `/quit` | Leave the REPL |
@@ -91,3 +89,9 @@ Goodbye.
 
 The last question demonstrates persistent history: the agent answers from the
 accumulated transcript, not just the last message.
+
+## Technical Consideration
+We are not fixing these now to preserve future layers but making note of things we observed that might need fixing.
+
+- we need to determine if quiet and loud are legacy logging or if they actually provide detailed logs.
+- It looks like in REPL loop we initialize on every turn an agent. It seems like we should initialize only once.
