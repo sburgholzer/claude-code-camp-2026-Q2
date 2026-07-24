@@ -21,6 +21,20 @@ Ruby steps assume `bundle exec` has already resolved gems from the
 When a later step adds new dependencies, install its `requirements.txt`
 into the same `.venv` rather than creating a new one.
 
+## 09_global_executable: a real `boukensha` command
+
+Unlike every prior step, `09_global_executable` isn't run through a
+numbered `bin/python/<step>` launcher — it installs a real console
+script into the shared `.venv`:
+
+```bash
+.venv/bin/pip install -e python/09_global_executable
+```
+
+After that, `boukensha` is a real command in `.venv/bin/`. See
+`python/09_global_executable/README.md` for `BOUKENSHA_PATH`/
+`~/.boukensharc` usage.
+
 ## macOS: fix TLS certificate errors before running steps that call an API
 
 Starting at `04_api_client`, steps make real HTTPS requests. The
