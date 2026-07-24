@@ -134,3 +134,4 @@ API key set?    true
 These are things we observed but we do not want fixed since future steps will break them again.
 - We have a default prompt e.g. prompts/system.md. It is supposed to be scoped on task e.g. prompts/<task>/system.md
 - Our settings file should accept .yml or .yaml, right now it only takes .yaml
+- We don't have a graceful way of saying we didn't find the settings.yaml file, it just errors out expecting to read a non existent file.
