@@ -1,18 +1,20 @@
+require_relative "boukensha_rc"
+
 # BoukenshaLoader resolves which step folder to load from, then boots the REPL.
 #
 # Resolution order:
 #   1. BOUKENSHA_PATH environment variable (selects which *step* lib to load)
-#   2. ~/.boukensharc  (a file containing a single path)
+#   2. ~/.boukensharc  (BOUKENSHA_PATH=... line, see BoukenshaRc)
 #   3. The lib/ directory bundled inside this gem (step 8 — the latest release)
 #
 # Config directory (settings.yaml, .env, system.md) is separate:
-#   BOUKENSHA_DIR=~/.boukensha  (default, set in env to override)
+#   BOUKENSHA_DIR=~/.boukensha  (default; override via env or ~/.boukensharc)
 #
 # Examples:
 #   boukensha                                                              # uses bundled lib + ~/.boukensha
 #   BOUKENSHA_PATH=~/Sites/boukensha/04_api_client boukensha              # loads step 4
 #   BOUKENSHA_DIR=~/projects/mybot/.boukensha boukensha                   # custom config dir
-#   echo ~/Sites/boukensha/08_the_repl_loop > ~/.boukensharc && boukensha # permanent step default
+#   echo "BOUKENSHA_PATH=~/Sites/boukensha/08_the_repl_loop" > ~/.boukensharc && boukensha
 module BoukenshaLoader
   # Absolute path to this gem's own bundled boukensha lib.
   BUNDLED_LIB = File.expand_path("../boukensha.rb", __FILE__)
@@ -33,19 +35,16 @@ module BoukenshaLoader
     end
 
     # 2. ~/.boukensharc
-    rc = File.expand_path("~/.boukensharc")
-    if File.exist?(rc)
-      dir  = File.read(rc).strip
-      unless dir.empty?
-        main = File.join(File.expand_path(dir), "lib", "boukensha.rb")
-        return main if File.exist?(main)
+    dir = BoukenshaRc.read["BOUKENSHA_PATH"]
+    if dir && !dir.empty?
+      main = File.join(File.expand_path(dir), "lib", "boukensha.rb")
+      return main if File.exist?(main)
 
-        abort <<~MSG
-          boukensha: ~/.boukensharc points to #{dir}
-                 but no lib/boukensha.rb was found there.
-                 Update ~/.boukensharc or remove it to use the bundled default.
-        MSG
-      end
+      abort <<~MSG
+        boukensha: ~/.boukensharc sets BOUKENSHA_PATH to #{dir}
+               but no lib/boukensha.rb was found there.
+               Update ~/.boukensharc or remove it to use the bundled default.
+      MSG
     end
 
     # 3. Bundled default.

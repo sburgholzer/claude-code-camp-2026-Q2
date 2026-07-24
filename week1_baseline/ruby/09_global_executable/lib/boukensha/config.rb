@@ -1,12 +1,14 @@
 require "yaml"
 require "dotenv"
 require "pathname"
+require_relative "../boukensha_rc"
 
 module Boukensha
   class Config
     # The .boukensha config directory is resolved in this order:
     #   1. BOUKENSHA_DIR environment variable (set before loading .env)
-    #   2. ~/.boukensha  (default)
+    #   2. ~/.boukensharc  (BOUKENSHA_DIR=... line, see BoukenshaRc)
+    #   3. ~/.boukensha  (default)
     DEFAULT_DIR = File.join(Dir.home, ".boukensha").freeze
 
     # Default prompts shipped alongside this step.
@@ -73,7 +75,7 @@ module Boukensha
     private
 
     def resolve_dir
-      raw = ENV.fetch("BOUKENSHA_DIR", nil) || DEFAULT_DIR
+      raw = ENV.fetch("BOUKENSHA_DIR", nil) || BoukenshaRc.read["BOUKENSHA_DIR"] || DEFAULT_DIR
       Pathname.new(raw).expand_path.to_s
     end
 
