@@ -5,6 +5,9 @@
 .env
 .env.local
 
+# Local Claude Code settings (machine-specific permissions/overrides)
+**/.claude/settings.local.json
+
 node_modules
 __pycache__
 .venv/
